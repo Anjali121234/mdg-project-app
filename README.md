@@ -1,3 +1,85 @@
+# MDG Project App
+
+A professor review and rating platform built using Next.js.  
+Students can rate professors based on teaching quality, clarity, grading, chillness, and approachability.
+
+---
+
+## 🚀 Live Demo
+https://mdg-project-app.vercel.app
+
+---
+
+## 🛠️ Tech Stack
+- Next.js (App Router)
+- React
+- Tailwind CSS
+- MongoDB
+- Mongoose
+- Vercel
+
+---
+
+## ✨ Features
+- ⭐ Overall professor rating
+- 📊 Review breakdown with charts
+- 📝 Students can submit reviews
+- 🚫 One review per user
+- 📱 Fully responsive (mobile & desktop)
+- 🎨 Clean UI with Tailwind CSS
+
+---
+
+## 📂 Project Structure
+ app/ → Pages & routing
+ components/ → Reusable UI components
+ models/ → MongoDB models
+ lib/ → Database connection & helpers
+ public/ → Static assets
+
+---
+
+## ⚙️ Getting Started (Run Locally)
+
+```bash
+npm install
+npm run dev
+```
+##Open:
+👉 http://localhost:3000
+
+👥 Contributors
+Anjali
+Harsh
+
+---
+
+### Step 4: Scroll down → **Commit changes**
+- Commit message:  
+- Click **Commit changes**
+
+✅ Done.
+
+---
+
+## 🎯 WHAT YOU JUST FIXED
+| Before | After |
+|---|---|
+| Generic Next.js README | Project-specific |
+| No idea what app does | Clear purpose |
+| Looks unfinished | Looks professional |
+| Bad for evaluation | ✅ Professor-ready |
+
+---
+
+## ❓ Optional (but recommended)
+If you want:
+- 📸 Add **screenshots section**
+- 🧪 Add **API routes explanation**
+- 🎓 Make README **submission-perfect**
+
+Tell me and I’ll tailor it exactly for your evaluation 👌
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
