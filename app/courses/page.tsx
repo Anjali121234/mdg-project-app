@@ -35,14 +35,13 @@ export default function CoursesPage() {
 
   const handleLogout = async () => {
     try {
-      // 1. Call the API to delete the cookie
+   
       const res = await fetch("/api/logout", { method: "POST" });
 
       if (res.ok) {
-        // 2. Refresh to clear Next.js cache of the protected data
+      
         router.refresh();
         
-        // 3. Send them back to Login
         router.push("/login");
       }
     } catch (error) {
@@ -82,7 +81,6 @@ export default function CoursesPage() {
           Search and select a course to explore professor reviews
         </p>
 
-        {/* SEARCH */}
         <input
   type="text"
   placeholder="Search subject (MAI-101, Physics...)"
@@ -104,7 +102,6 @@ export default function CoursesPage() {
 
       </div>
 
-      {/* GRID */}
       <div
         style={{
           maxWidth: "1200px",
