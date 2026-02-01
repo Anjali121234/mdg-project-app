@@ -152,7 +152,7 @@ const [currentUser, setCurrentUser] = useState("");
 }
 
 return (
- <div className="min-h-screen bg-gradient-to-br from-[#0f172a] to-[#020617] text-white px-0 sm:px-6 md:px-10 py-12">
+ <div className="min-h-screen bg-gradient-to-br from-[#0f172a] to-[#020617] text-white px-1 sm:px-6 md:px-10 py-12">
 
 
 
@@ -180,11 +180,10 @@ return (
         ) : (
           <p className="text-gray-400">No reviews yet</p>
         )}
-<div className="w-full overflow-x-auto">
-  <div className="min-w-[320px] h-[240px] sm:h-[280px] md:h-[320px]">
-    <ReviewChart reviews={reviews} />
-  </div>
+<div className="w-full">
+  <ReviewChart reviews={reviews} />
 </div>
+
 
       </div>
 
