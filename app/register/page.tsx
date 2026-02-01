@@ -29,7 +29,7 @@ export default function RegisterPage() {
       alert(data.message || "Registration failed");
       return;
     }
-    alert("Registration successful with api!");
+    alert("Registration successful!");
     router.push("/dashboard");
   } catch (err) {
     console.error(err);

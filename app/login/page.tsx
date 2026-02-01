@@ -83,7 +83,7 @@ export default function LoginPage() {
             textAlign: "center",
           }}
         >
-          Welcome Back 👋
+          Welcome👋
         </h1>
 
         <p
@@ -132,7 +132,7 @@ export default function LoginPage() {
               border: "none",
               outline: "none",
               fontSize: "15px",
-              color: "#333", // Make text readable
+              color: "#ccc9c9", // Make text readable
             }}
           />
 
@@ -152,7 +152,7 @@ export default function LoginPage() {
               border: "none",
               outline: "none",
               fontSize: "15px",
-              color: "#333",
+              color: "#bebebe",
             }}
           />
 
