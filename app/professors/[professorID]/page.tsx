@@ -4,14 +4,14 @@ import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import ReviewChart from "@/components/ReviewChart";
 
-/* ---------- Types ---------- */
+
 type PageProps = {
   params: Promise<{ professorID: string }>;
 };
 
 type Review = {
   collegeId: string;
-  teachingQuality: number; // Updated to match DB response mapping if necessary, or map manually
+  teachingQuality: number; 
   conceptClarity: number;
   gradingQuality: number;
   chillness: number;
@@ -19,7 +19,7 @@ type Review = {
   createdAt: string;
 };
 
-// ... Stars and StarRating components remain the same ...
+
 function Stars({ value }: { value: number }) {
   return <span style={{ color: "#FFD700" }}>{"★".repeat(value)}{"☆".repeat(5 - value)}</span>;
 }
@@ -33,12 +33,12 @@ function StarRating({ value, onChange }: { value: number; onChange: (v: number) 
   );
 }
 
-/* ---------- Page ---------- */
+
 export default function ProfessorPage({ params }: PageProps) {
   const { professorID } = use(params);
 const [currentUser, setCurrentUser] = useState("");
   const [professor, setProfessor] = useState<any>(null);
-  const [reviews, setReviews] = useState<any[]>([]); // simplified type for demo
+  const [reviews, setReviews] = useState<any[]>([]);
   const [userEmail, setUserEmail] = useState("");
 
   const [form, setForm] = useState({
@@ -49,14 +49,14 @@ const [currentUser, setCurrentUser] = useState("");
     approachable: 0,
   });
 
-  /* ---------- Load data ---------- */
+ 
   useEffect(() => {
     const load = async () => {
-      // 1. Fetch Professor
+     
       const p = await fetch(`/api/professors/${professorID}`).then((r) => r.json());
       setProfessor(p);
 
-      // 2. Fetch Reviews
+      
       const r = await fetch(`/api/reviews?professorId=${professorID}`).then((r) => r.json());
       setReviews(r);
     };
@@ -75,22 +75,21 @@ const [currentUser, setCurrentUser] = useState("");
       reviews.reduce(
         (s, r) =>
           s +
-          // Note: Ensure these property names match what your API returns (teachingQuality vs teaching)
+          
           (r.teachingQuality + r.conceptClarity + r.gradingQuality + r.chillness + r.approachability) / 5,
         0
       ) / reviews.length
     );
   }, [reviews]);
 
-  /* ---------- Submit ---------- */
-  /* ---------- Submit ---------- */
+ 
   const searchParams = useSearchParams();
   const subjectIdFromUrl = searchParams.get("subjectId");
  const submitReview = async (e: any) => {
     e.preventDefault();
     console.log("🚀 Submit button clicked!");
 
-    // 1. Validation Checks
+ 
     if (!currentUser) {
       alert("Please login first.");
       return;
@@ -100,7 +99,7 @@ const [currentUser, setCurrentUser] = useState("");
       return;
     }
 
-    // 2. Resolve Subject ID
+   
     let finalSubjectId = subjectIdFromUrl;
     if (!finalSubjectId && professor?.subjects?.length > 0) {
        const firstSub = professor.subjects[0];
@@ -108,7 +107,7 @@ const [currentUser, setCurrentUser] = useState("");
     }
     if (!finalSubjectId) return alert("Error: No subject found.");
 
-    // 3. Send Data to API
+    
     try {
       const res = await fetch("/api/reviews", {
         method: "POST",
@@ -125,14 +124,14 @@ const [currentUser, setCurrentUser] = useState("");
         }),
       });
 
-      const data = await res.json(); // Read the response
+      const data = await res.json(); 
 
       if (res.ok) {
-        // ✅ SUCCESS! Only now do we reload.
+       
         alert("Review Saved!");
         location.reload();
       } else {
-        // ❌ ERROR! Show the message and DO NOT reload.
+     
         console.error("Server Error:", data);
         alert("Failed to save: " + (data.message || "Unknown Error"));
       }
@@ -157,16 +156,16 @@ return (
 
 
     
-    {/* Professor Header */}
+   
     <div className="mb-10">
       <h1 className="text-4xl font-bold">{professor.name}</h1>
       <p className="text-lg text-gray-400 mt-1">{professor.course}</p>
     </div>
 
-    {/* Main Section */}
+    
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
-      {/* LEFT: Ratings Overview */}
+    
       <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 shadow-lg">
         <h2 className="text-2xl font-semibold mb-4">Overall Rating</h2>
 
@@ -187,7 +186,7 @@ return (
 
       </div>
 
-      {/* RIGHT: Review Form */}
+     
       <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 shadow-lg">
         <h2 className="text-2xl font-semibold mb-6">Give Your Review</h2>
 
@@ -218,7 +217,7 @@ return (
       </div>
     </div>
 
-    {/* ALL REVIEWS */}
+   
     <div className="mt-14">
       <h2 className="text-3xl font-semibold mb-6">All Reviews</h2>
 
