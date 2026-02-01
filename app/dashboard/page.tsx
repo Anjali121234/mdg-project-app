@@ -12,7 +12,7 @@ export default function DashboardPage() {
         color: "white",
       }}
     >
-      {/* TOP BAR */}
+     
       <div
         style={{
           maxWidth: "1200px",
@@ -22,7 +22,7 @@ export default function DashboardPage() {
           alignItems: "center",
         }}
       >
-        {/* LEFT TITLE */}
+       
         <div>
           <h1
             style={{
@@ -44,7 +44,7 @@ export default function DashboardPage() {
           </p>
         </div>
 
-        {/* LOGOUT BUTTON */}
+        
         <a
           href="/login"
           style={{
@@ -66,7 +66,7 @@ export default function DashboardPage() {
           </button>
         </a>
       </div>
-      {/* MAIN CONTENT */}
+      
       <div
         style={{
           maxWidth: "1200px",
@@ -76,7 +76,7 @@ export default function DashboardPage() {
           gap: "32px",
         }}
       >
-        {/* VIEW COURSES CARD */}
+     
         <a
           href="/courses"
           style={{
