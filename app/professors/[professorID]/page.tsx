@@ -152,7 +152,9 @@ const [currentUser, setCurrentUser] = useState("");
 }
 
 return (
- <div className="min-h-screen bg-gradient-to-br from-[#0f172a] to-[#020617] text-white px-4 sm:px-6 md:px-10 py-12">
+ <div className="min-h-screen bg-gradient-to-br from-[#0f172a] to-[#020617] text-white px-1 sm:px-6 md:px-10 py-12">
+
+
 
     
     {/* Professor Header */}
