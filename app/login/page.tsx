@@ -6,14 +6,14 @@ import { useRouter } from "next/navigation";
 export default function LoginPage() {
   const router = useRouter();
 
-  // 👇 Updated to match your Backend (collegeId instead of email)
+  
   const [collegeId, setCollegeId] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); // To show red error text
+  const [error, setError] = useState(""); 
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e?: React.FormEvent) => {
-    if (e) e.preventDefault(); // Prevent page reload if triggered by form
+    if (e) e.preventDefault(); 
     setError("");
     setLoading(true);
 
@@ -24,7 +24,7 @@ export default function LoginPage() {
     }
 
     try {
-      // 👇 CONNECTING TO YOUR API
+   
       const res = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -32,14 +32,13 @@ export default function LoginPage() {
       });
 
       if (res.ok) {
-        // ✅ Login Success
-        // The cookie is now set automatically by the browser.
+      
         const data: any = await res.json();
         localStorage.setItem("currentUser", data.user.collegeId);
-        router.refresh(); // Tell Next.js to re-check the middleware
-        router.push("/courses"); // Redirect to the protected page
+        router.refresh(); 
+        router.push("/courses");
       } else {
-        // ❌ Login Failed
+        
         const data = await res.json();
         setError(data.message || "Invalid credentials");
       }
@@ -61,7 +60,7 @@ export default function LoginPage() {
         fontFamily: "'Inter', system-ui, sans-serif",
       }}
     >
-      {/* CARD */}
+     
       <div
         style={{
           width: "100%",
@@ -74,7 +73,7 @@ export default function LoginPage() {
           color: "white",
         }}
       >
-        {/* TITLE */}
+        
         <h1
           style={{
             fontSize: "28px",
@@ -96,7 +95,7 @@ export default function LoginPage() {
           Login to continue to Professor Review System
         </p>
 
-        {/* 👇 ERROR MESSAGE (Only shows if there is an error) */}
+     
         {error && (
           <div
             style={{
@@ -114,9 +113,9 @@ export default function LoginPage() {
           </div>
         )}
 
-        {/* WRAP INPUTS IN FORM FOR "ENTER" KEY SUPPORT */}
+        
         <form onSubmit={handleLogin}>
-          {/* COLLEGE ID (Changed from Email) */}
+         
           <label style={{ fontSize: "14px", color: "#ccc" }}>College ID</label>
           <input
             type="text"
@@ -132,11 +131,11 @@ export default function LoginPage() {
               border: "none",
               outline: "none",
               fontSize: "15px",
-              color: "#ccc9c9", // Make text readable
+              color: "#ccc9c9", 
             }}
           />
 
-          {/* PASSWORD */}
+         
           <label style={{ fontSize: "14px", color: "#ccc" }}>Password</label>
           <input
             type="password"
@@ -156,7 +155,6 @@ export default function LoginPage() {
             }}
           />
 
-          {/* LOGIN BUTTON */}
           <button
             type="submit"
             disabled={loading}
@@ -166,7 +164,7 @@ export default function LoginPage() {
               fontSize: "16px",
               fontWeight: "600",
               background: loading
-                ? "#555" // Gray out when loading
+                ? "#555" 
                 : "linear-gradient(135deg, #1d8cf8, #3358f4)",
               color: "white",
               border: "none",
@@ -178,7 +176,7 @@ export default function LoginPage() {
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
-{/* REGISTER LINK */}
+
 <p
   style={{
     marginTop: "18px",
@@ -201,7 +199,7 @@ export default function LoginPage() {
   </span>
 </p>
 
-        {/* FOOTER */}
+      
         <p
           style={{
             marginTop: "25px",
