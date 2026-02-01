@@ -29,13 +29,18 @@ export async function POST(req: NextRequest) {
     { expiresIn: "7d" }
   );
 
-  return NextResponse.json({
+  // 👇 CREATE RESPONSE OBJECT
+  const response = NextResponse.json({
     message: "Login successful",
-    token,
-    user: {
-      id: user._id,
-      name: user.name,
-      collegeId: user.collegeId,
-    },
+    user: { id: user._id, name: user.name, collegeId: user.collegeId },
   });
+
+  // 👇 SET THE COOKIE (This is the key to Middleware!)
+  response.cookies.set("token", token, {
+    httpOnly: true, // Secure: JavaScript cannot read this (prevents XSS)
+    path: "/", // Available on whole site
+    maxAge: 60 * 60 * 24 * 7, // 7 days
+  });
+
+  return response;
 }

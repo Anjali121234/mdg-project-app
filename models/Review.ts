@@ -12,18 +12,16 @@ const reviewSchema = new Schema(
       ref: "Professor",
       required: true,
     },
-
-    // ⭐ ratings (1–5)
+   
+    collegeId: { 
+      type: String, 
+      required: true 
+    }, 
     teachingQuality: { type: Number, min: 1, max: 5, required: true },
     conceptClarity: { type: Number, min: 1, max: 5, required: true },
     gradingQuality: { type: Number, min: 1, max: 5, required: true },
     chillness: { type: Number, min: 1, max: 5, required: true },
     approachability: { type: Number, min: 1, max: 5, required: true },
-
-    // ✅ yes / no
-    lateAttendanceAllowed: { type: Boolean, required: true },
-    lateSubmissionAllowed: { type: Boolean, required: true },
-    standingQuestionsAllowed: { type: Boolean, required: true },
   },
   { timestamps: true }
 );
