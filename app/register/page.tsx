@@ -20,7 +20,7 @@ export default function RegisterPage() {
     const res = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, collegeId: email, password }), // map email → collegeId for backend
+      body: JSON.stringify({ name, collegeId: email, password }),
     });
 
     const data = await res.json();
@@ -61,7 +61,7 @@ export default function RegisterPage() {
           boxShadow: "0 30px 60px rgba(0,0,0,0.6)",
         }}
       >
-        {/* TITLE */}
+       
         <h1 style={{ fontSize: "32px", fontWeight: "800" }}>
           Create Account
         </h1>
@@ -70,7 +70,6 @@ export default function RegisterPage() {
           Register to review professors 
         </p>
 
-        {/* NAME */}
         <input
           type="text"
           placeholder="Full name"
@@ -79,7 +78,6 @@ export default function RegisterPage() {
           style={inputStyle}
         />
 
-        {/* EMAIL */}
         <input
           type="email"
           placeholder="Email address"
@@ -88,7 +86,6 @@ export default function RegisterPage() {
           style={inputStyle}
         />
 
-        {/* PASSWORD */}
         <input
           type="password"
           placeholder="Password"
@@ -97,7 +94,6 @@ export default function RegisterPage() {
           style={inputStyle}
         />
 
-        {/* REGISTER BUTTON */}
         <button
           onClick={handleRegister}
           style={{
@@ -123,7 +119,6 @@ export default function RegisterPage() {
           Register
         </button>
 
-        {/* LOGIN LINK */}
         <p
           style={{
             marginTop: "24px",
@@ -148,7 +143,7 @@ export default function RegisterPage() {
   );
 }
 
-/* ---------- Input Style ---------- */
+
 const inputStyle: React.CSSProperties = {
   width: "100%",
   padding: "14px",
