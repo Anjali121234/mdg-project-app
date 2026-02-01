@@ -13,7 +13,7 @@ type PageProps = {
 };
 
 export default function CourseDetailPage({ params }: PageProps) {
-  const { courseID } = use(params); // subjectId
+  const { courseID } = use(params); 
 
   const [professors, setProfessors] = useState<Professor[]>([]);
   const [loading, setLoading] = useState(true);
