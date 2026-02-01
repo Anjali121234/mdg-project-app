@@ -177,8 +177,12 @@ return (
         ) : (
           <p className="text-gray-400">No reviews yet</p>
         )}
+<div className="w-full overflow-x-auto">
+  <div className="min-w-[320px] h-[240px] sm:h-[280px] md:h-[320px]">
+    <ReviewChart reviews={reviews} />
+  </div>
+</div>
 
-        <ReviewChart reviews={reviews} />
       </div>
 
       {/* RIGHT: Review Form */}
